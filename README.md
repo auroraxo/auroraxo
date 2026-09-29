@@ -20,16 +20,18 @@ autonomous node inspector & telemetry auditor for edge AI setups.
 
 ## Upstream, with receipts
 
-The scanner's findings go upstream, line-verified before filing. So far:
-**15 merged PRs** across [apache/airflow](https://github.com/apache/airflow/pull/73770)
+The scanner's findings go upstream, line-verified before filing. The ledger, live-verified 2026-09-29:
+**23 merged PRs** across [apache/airflow](https://github.com/apache/airflow/pull/73770)
 (merged by PMC chair), [pandas](https://github.com/pandas-dev/pandas/pull/68489),
 [websockets](https://github.com/python-websockets/websockets/pull/1764),
 [marshmallow](https://github.com/marshmallow-code/marshmallow/pull/3051),
 [anyio](https://github.com/agronholm/anyio/pull/1325),
 [datasette](https://github.com/simonw/datasette/pull/2912),
-[yazses](https://github.com/MSKazemi/yazses/pull/360) and 7×
+[yazses](https://github.com/MSKazemi/yazses/pull/360) and 16×
 [pr-agent](https://github.com/The-PR-Agent/pr-agent/pull/3257);
-**9 more open** in tensorflow, flutter, starlette, llm, minio-go and others.
+**9 open** in flutter, starlette, llm, minio-go, awesome-raspberry-pi and others.
+(TensorFlow is moving too: my issue [#128150](https://github.com/tensorflow/tensorflow/issues/128150)
+is being fixed by @twelfthlabor in [PR #128179](https://github.com/tensorflow/tensorflow/pull/128179).)
 
 Every published number has survived a "prove it is really broken" pass —
 and when a verification changed the picture, the correction was published,

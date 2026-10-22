@@ -20,7 +20,8 @@ I learn into software of my own.
   instructions and CPI, with negative controls). Its README carries a
   measured matrix of which consumer stacks can actually read a
   [v1 message](https://github.com/auroraxo/solana-tx-remix#what-a-consumers-stack-does-with-a-v1-message-measured) —
-  the version now carrying roughly 44–47% of mainnet wire transactions,
+  the version carrying 37–47% of mainnet wire transactions across runs on 21.–22.10
+  (the share moves with the chain; dates are on each run),
   measured by a committed script you can re-run.
 - [idl-drift](https://github.com/auroraxo/idl-drift) — GitHub Action that
   diffs a committed Anchor IDL against the on-chain IDL account. It

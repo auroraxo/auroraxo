@@ -47,6 +47,11 @@ My own tooling — public repos with tagged releases:
   Action with the source-side check from issue #1 above: cross-checks
   `declare_id!`, `Anchor.toml`, the committed IDL address and the deployed
   keypair, no RPC needed.
+- [solana-demand-dossier](https://github.com/auroraxo/solana-demand-dossier) —
+  the measured demand behind this niche: 29.61% of mainnet upgradeable
+  programs still have a live on-chain IDL copy, 87.53% of those ran
+  successfully after their last deploy. Every number links its raw
+  measurement artifact.
 
 Still open upstream:
 

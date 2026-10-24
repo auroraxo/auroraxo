@@ -13,29 +13,43 @@ is software that gets used widely enough to matter.
 SDKs on Solana: read the code, ship real contributions, and turn what
 I learn into software of my own.
 
-### Published tools
+## Work in the ecosystem
 
-- [solana-tx-remix](https://github.com/auroraxo/solana-tx-remix) — a public
-  mainnet signature in, an editable, byte-verified transaction out (outer
-  instructions and CPI, with negative controls). Its README carries a
-  measured matrix of which consumer stacks can actually read a
-  [v1 message](https://github.com/auroraxo/solana-tx-remix#what-a-consumers-stack-does-with-a-v1-message-measured) —
-  the version carrying 37–47% of mainnet wire transactions across runs on 21.–22.10
-  (the share moves with the chain; dates are on each run),
-  measured by a committed script you can re-run.
+Two things that happened because of something I wrote, each re-checkable
+at the link:
+
+- **Issue → implementation → release.** I opened
+  [senzenn/idl-drift#1](https://github.com/senzenn/idl-drift/issues/1) —
+  a source-side program-ID consistency check across `declare_id!`,
+  `Anchor.toml`, the committed IDL address and the deployed key. The
+  author implemented it as
+  [PR #5](https://github.com/senzenn/idl-drift/pull/5) (+2,678 lines,
+  merged 2026-10-23) and shipped it in
+  [release v0.2.0](https://github.com/senzenn/idl-drift/releases/tag/v0.2.0)
+  the same day.
+- **My patch is on the v4.3 release line.** I opened
+  [anza-xyz/agave#16261](https://github.com/anza-xyz/agave/pull/16261)
+  to backport the v1-transaction CLI fix (context:
+  [#15531](https://github.com/anza-xyz/agave/issues/15531)) to v4.3, the
+  line mainnet runs. The maintainers closed it in favour of their own
+  automation backport,
+  [#16276](https://github.com/anza-xyz/agave/pull/16276) — whose patch I
+  verified byte-identical to mine via the GitHub files API. It is open,
+  awaiting maintainer review; I am not claiming it as merged.
+
+My own tooling — public repos with tagged releases:
+
 - [idl-drift](https://github.com/auroraxo/idl-drift) — GitHub Action that
   diffs a committed Anchor IDL against the on-chain IDL account. It
   publishes a [public drift ledger](https://auroraxo.github.io/idl-drift/ledger/)
   of real findings across curated mainnet programs.
 - [declare-id-drift](https://github.com/auroraxo/declare-id-drift) — GitHub
-  Action that cross-checks `declare_id!`, `Anchor.toml`, the committed IDL
-  address and the deployed keypair, no RPC needed.
+  Action with the source-side check from issue #1 above: cross-checks
+  `declare_id!`, `Anchor.toml`, the committed IDL address and the deployed
+  keypair, no RPC needed.
 
-### Contributing upstream (open at time of writing)
+Still open upstream:
 
-- [anza-xyz/agave#16261](https://github.com/anza-xyz/agave/pull/16261) —
-  backport of the v1 transaction display fix to the v4.3 release line
-  (context: [#15531](https://github.com/anza-xyz/agave/issues/15531)).
 - [LiteSVM/litesvm#444](https://github.com/LiteSVM/litesvm/pull/444) —
   external-memory accounting in the Node binding, fixing GC starvation
   (context: [#345](https://github.com/LiteSVM/litesvm/issues/345)).

@@ -51,7 +51,8 @@ My own tooling — public repos with tagged releases:
   the measured demand behind this niche: 29.61% of mainnet upgradeable
   programs still have a live on-chain IDL copy, 87.53% of those ran
   successfully after their last deploy. Every number links its raw
-  measurement artifact.
+  measurement artifact. Readable as one page with the same evidence links:
+  [codebyaurora.com/befund](https://codebyaurora.com/befund/).
 
 Still open upstream:
 

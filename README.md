@@ -52,7 +52,7 @@ My own tooling — public repos with tagged releases:
   programs still have a live on-chain IDL copy, 87.53% of those ran
   successfully after their last deploy. Every number links its raw
   measurement artifact. Readable as one page with the same evidence links:
-  [codebyaurora.com/befund](https://codebyaurora.com/befund/).
+  [codebyaurora.com/solana-findings](https://codebyaurora.com/solana-findings/).
 
 Still open upstream:
 

@@ -1,79 +1,79 @@
 # Aurora
 
-Solana developer. I build open-source software for the Solana ecosystem —
-tools and programs people actually run, not one-off scripts.
+Hi — I build open-source software for the Solana ecosystem. Small, focused
+tools that run locally and answer one concrete question, plus contributions
+upstream where I find real gaps.
 
-I start by contributing to projects already live on Solana, then build my
-own where the ecosystem is missing something many developers need. The aim
-is software that gets used widely enough to matter.
+Everything here is public and re-checkable: tagged releases, open issues,
+and measurements that link their raw data.
 
-## Now
+## Building now
 
-**Solana, in public.** I am working through the smaller protocols and
-SDKs on Solana: read the code, ship real contributions, and turn what
-I learn into software of my own.
+- **[sememe](https://github.com/auroraxo/sememe)** — a local meaning layer
+  for Solana. `sememe pull <program>` fetches and verifies a program
+  interface, then instructions, accounts, and events decode offline.
+  RFC stage; v0.4 releases are tagged.
+- **[reeflog](https://github.com/auroraxo/reeflog)** — a durable local
+  mailbox for Solana events. A cursor-addressed append-only journal with
+  gap-fill, reorg sealing, and webhook fan-out, so a consumer resumes
+  without gaps after a crash, disconnect, or reorg. Running live against
+  mainnet-beta.
+- **[signerd](https://github.com/auroraxo/signerd)** — a scoped signing
+  daemon for Solana keys: the ssh-agent pattern. The key lives once in a
+  local daemon; processes hold grants, never secrets. Early v0 prototype —
+  not a security-reviewed wallet, and not for real funds.
 
-## Work in the ecosystem
+## Next
 
-Two things that happened because of something I wrote, each re-checkable
+- **sememe:** catalog import and a local daemon on top of the verified
+  pull/decode core.
+- **reeflog:** longer mainnet runs, a second transport (Yellowstone gRPC),
+  more real consumers.
+- **signerd:** a professional security review before anything real flows
+  through it.
+
+## Upstream
+
+Three things that happened because of something I wrote, each re-checkable
 at the link:
 
-- **Issue → implementation → release.** I opened
-  [senzenn/idl-drift#1](https://github.com/senzenn/idl-drift/issues/1) —
-  a source-side program-ID consistency check across `declare_id!`,
-  `Anchor.toml`, the committed IDL address and the deployed key. The
-  author implemented it as
-  [PR #5](https://github.com/senzenn/idl-drift/pull/5) (+2,678 lines,
-  merged 2026-10-23) and shipped it in
-  [release v0.2.0](https://github.com/senzenn/idl-drift/releases/tag/v0.2.0)
-  the same day.
-- **My patch is on the v4.3 release line.** I opened
-  [anza-xyz/agave#16261](https://github.com/anza-xyz/agave/pull/16261)
-  to backport the v1-transaction CLI fix (context:
-  [#15531](https://github.com/anza-xyz/agave/issues/15531)) to v4.3, the
-  line mainnet runs. The maintainers closed it in favour of their own
-  automation backport,
-  [#16276](https://github.com/anza-xyz/agave/pull/16276) — whose patch I
-  verified byte-identical to mine via the GitHub files API. It is open,
-  awaiting maintainer review; I am not claiming it as merged.
-
-My own tooling — public repos with tagged releases:
-
-- [idl-drift](https://github.com/auroraxo/idl-drift) — GitHub Action that
-  diffs a committed Anchor IDL against the on-chain IDL account. It
-  publishes a [public drift ledger](https://auroraxo.github.io/idl-drift/ledger/)
-  of real findings across curated mainnet programs.
-- [declare-id-drift](https://github.com/auroraxo/declare-id-drift) — GitHub
-  Action with the source-side check from issue #1 above: cross-checks
-  `declare_id!`, `Anchor.toml`, the committed IDL address and the deployed
-  keypair, no RPC needed.
-- [solana-demand-dossier](https://github.com/auroraxo/solana-demand-dossier) —
-  the measured demand behind this niche: 29.61% of mainnet upgradeable
-  programs still have a live on-chain IDL copy, 87.53% of those ran
-  successfully after their last deploy. Every number links its raw
-  measurement artifact. Readable as one page with the same evidence links:
-  [codebyaurora.com/solana-findings](https://codebyaurora.com/solana-findings/).
-
-Still open upstream:
-
-- [LiteSVM/litesvm#444](https://github.com/LiteSVM/litesvm/pull/444) —
+- **[senzenn/idl-drift#1](https://github.com/senzenn/idl-drift/issues/1)** —
+  I proposed a source-side program-ID consistency check across
+  `declare_id!`, `Anchor.toml`, the committed IDL address, and the deployed
+  key. The author implemented it as
+  [PR #5](https://github.com/senzenn/idl-drift/pull/5) (merged 2026-10-23)
+  and shipped it in
+  [release v0.2.0](https://github.com/senzenn/idl-drift/releases/tag/v0.2.0).
+- **[LiteSVM/litesvm#444](https://github.com/LiteSVM/litesvm/pull/444)** —
   external-memory accounting in the Node binding, fixing GC starvation
-  (context: [#345](https://github.com/LiteSVM/litesvm/issues/345)).
-
-Nothing is claimed as merged that is not merged; everything above is
-public and re-checkable.
+  (context: [#345](https://github.com/LiteSVM/litesvm/issues/345)). Open,
+  awaiting maintainer review.
+- **[anza-xyz/agave#16261](https://github.com/anza-xyz/agave/pull/16261)** —
+  a v4.3 backport of the v1-transaction CLI fix. The maintainers closed it
+  in favour of their own automation backport
+  ([#16276](https://github.com/anza-xyz/agave/pull/16276)); both are now
+  closed without merging, and the underlying
+  [issue #15531](https://github.com/anza-xyz/agave/issues/15531) stays
+  open. Nothing here is claimed as merged that is not merged.
 
 ## Before this
 
-I already ship and get code merged. [docrot](https://github.com/auroraxo/docrot)
-measures documentation rot across hundreds of repositories, and the
-findings went upstream: merged pull requests in Apache Airflow, pandas,
-websockets, marshmallow, anyio, datasette, and others.
-[aurora-node-auditor](https://github.com/auroraxo/aurora-node-auditor)
-inspects nodes.
-
-That work is how I got here. Solana is what I am building now.
+- [idl-drift](https://github.com/auroraxo/idl-drift) and
+  [declare-id-drift](https://github.com/auroraxo/declare-id-drift) — GitHub
+  Actions that check a committed Anchor IDL against the deployed program:
+  on-chain and in source. idl-drift publishes a
+  [public drift ledger](https://auroraxo.github.io/idl-drift/ledger/) of
+  real findings across curated mainnet programs.
+- [solana-demand-dossier](https://github.com/auroraxo/solana-demand-dossier) —
+  the measured demand behind that niche; every number links its raw
+  measurement artifact, also readable as one page at
+  [codebyaurora.com/solana-findings](https://codebyaurora.com/solana-findings/).
+- [docrot](https://github.com/auroraxo/docrot) — measures documentation
+  image rot across hundreds of repositories; the findings went upstream as
+  merged pull requests in Apache Airflow, pandas, websockets, marshmallow,
+  anyio, datasette, and others.
 
 ## Elsewhere
 
-[codebyaurora.com](https://codebyaurora.com/)
+- [codebyaurora.com](https://codebyaurora.com/)
+- Issues and questions on any repo are welcome — they get answered here.

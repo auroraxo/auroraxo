@@ -14,14 +14,14 @@ and measurements that link their raw data.
   interface, then instructions, accounts, and events decode offline.
   RFC stage; v0.4 releases are tagged.
 - **[reeflog](https://github.com/auroraxo/reeflog)** — a durable local
-  mailbox for Solana events. A cursor-addressed append-only journal with
-  gap-fill, reorg sealing, and webhook fan-out, so a consumer resumes
-  without gaps after a crash, disconnect, or reorg. Running live against
-  mainnet-beta.
+  mailbox for Solana events. It keeps a cursor-addressed journal, helps
+  consumers resume after interruptions, and reports gaps and reorgs. Running
+  live against mainnet-beta; recovery depends on available RPC history.
 - **[signerd](https://github.com/auroraxo/signerd)** — a scoped signing
-  daemon for Solana keys: the ssh-agent pattern. The key lives once in a
-  local daemon; processes hold grants, never secrets. Early v0 prototype —
-  not a security-reviewed wallet, and not for real funds.
+  daemon for Solana keys: the ssh-agent pattern. A local daemon holds the
+  key, so clients can request signatures under scoped grants without loading
+  the secret themselves. Early v0 prototype — not a security-reviewed
+  wallet, and not for real funds.
 
 ## Next
 
@@ -76,4 +76,4 @@ at the link:
 ## Elsewhere
 
 - [codebyaurora.com](https://codebyaurora.com/)
-- Issues and questions on any repo are welcome — they get answered here.
+- Issues and questions on any repo are welcome.
